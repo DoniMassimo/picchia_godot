@@ -1,20 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq7tvbeyan0qq"]
+[gd_scene load_steps=7 format=3 uid="uid://cq7tvbeyan0qq"]
 
 [ext_resource type="PackedScene" uid="uid://72dv4dwf2s4x" path="res://Player.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://dy7kv45tiucy7" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://oy5wawxrbefd" path="res://mob.gd" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://ct63c6ddv7w73" path="res://spearmy.jpg" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(1173, 93.5)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(93, 98)
+
+[node name="Root" type="Node2D"]
 
 [node name="Player1" parent="." instance=ExtResource("1_0xm2m")]
 position = Vector2(435, 530)
-up_key = "ui_up1"
-down_key = "ui_down1"
-left_key = "ui_left1"
-right_key = "ui_right1"
-attack_key = "attack1"
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
@@ -27,5 +27,45 @@ position = Vector2(577.5, 610.5)
 scale = Vector2(9.16406, 0.726562)
 texture = ExtResource("2_h2yge")
 
-[node name="Player2" parent="." instance=ExtResource("1_0xm2m")]
-position = Vector2(670, 526)
+[node name="Ground2" type="StaticBody2D" parent="."]
+position = Vector2(49, -778)
+rotation = 0.781907
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
+position = Vector2(576.5, 611.25)
+rotation = 0.781907
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
+position = Vector2(577.5, 610.5)
+rotation = 0.781907
+scale = Vector2(9.16406, 0.726562)
+texture = ExtResource("2_h2yge")
+
+[node name="Ground3" type="StaticBody2D" parent="."]
+position = Vector2(1136, -772)
+rotation = 0.781907
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
+position = Vector2(576.5, 611.25)
+rotation = 0.781907
+shape = SubResource("RectangleShape2D_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground3"]
+position = Vector2(577.5, 610.5)
+rotation = 0.781907
+scale = Vector2(9.16406, 0.726562)
+texture = ExtResource("2_h2yge")
+
+[node name="Mob" type="CharacterBody2D" parent="."]
+position = Vector2(966, 529)
+script = ExtResource("3_1bvp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob"]
+position = Vector2(-49.5, -27)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Spearmy" type="Sprite2D" parent="Mob"]
+position = Vector2(-49.75, -27.5)
+scale = Vector2(0.0865741, 0.0903166)
+texture = ExtResource("3_h2yge")
