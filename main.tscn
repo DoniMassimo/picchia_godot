@@ -1,19 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://cq7tvbeyan0qq"]
+[gd_scene load_steps=11 format=3 uid="uid://cq7tvbeyan0qq"]
 
 [ext_resource type="PackedScene" uid="uid://72dv4dwf2s4x" path="res://Player.tscn" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://dy7kv45tiucy7" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dy7kv45tiucy7" path="res://assets/icon.svg" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://oy5wawxrbefd" path="res://mob.gd" id="3_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://ct63c6ddv7w73" path="res://spearmy.jpg" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ct63c6ddv7w73" path="res://assets/spearmy.jpg" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://x33btlmp24l7" path="res://mob_roller.gd" id="5_7mycd"]
+[ext_resource type="Texture2D" uid="uid://cm7t0uf71nwih" path="res://assets/freaky_nobk.png" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://dfatjqyi5wuql" path="res://assets/weird.png" id="7_272bh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(1173, 93.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(93, 98)
+size = Vector2(38.5, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5vw27"]
+radius = 36.0139
 
 [node name="Root" type="Node2D"]
 
 [node name="Player1" parent="." instance=ExtResource("1_0xm2m")]
+unique_name_in_owner = true
 position = Vector2(435, 530)
 
 [node name="Ground" type="StaticBody2D" parent="."]
@@ -58,14 +65,36 @@ scale = Vector2(9.16406, 0.726562)
 texture = ExtResource("2_h2yge")
 
 [node name="Mob" type="CharacterBody2D" parent="."]
-position = Vector2(966, 529)
+position = Vector2(905, 537)
 script = ExtResource("3_1bvp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mob"]
-position = Vector2(-49.5, -27)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="Spearmy" type="Sprite2D" parent="Mob"]
-position = Vector2(-49.75, -27.5)
-scale = Vector2(0.0865741, 0.0903166)
+scale = Vector2(0.0368056, 0.0153632)
 texture = ExtResource("3_h2yge")
+
+[node name="MobRoller" type="CharacterBody2D" parent="."]
+position = Vector2(695, 516)
+script = ExtResource("5_7mycd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MobRoller"]
+position = Vector2(1, -3)
+shape = SubResource("CircleShape2D_5vw27")
+
+[node name="JumpDelayTimer" type="Timer" parent="MobRoller"]
+
+[node name="FrontSpriteWrapper" type="Node2D" parent="MobRoller"]
+
+[node name="FreakyNobk" type="Sprite2D" parent="MobRoller/FrontSpriteWrapper"]
+scale = Vector2(0.073, 0.076)
+texture = ExtResource("6_272bh")
+region_rect = Rect2(2, 1, 1063.6, 1040.82)
+
+[node name="BackSpriteWrapper" type="Node2D" parent="MobRoller"]
+
+[node name="Weird" type="Sprite2D" parent="MobRoller/BackSpriteWrapper"]
+position = Vector2(0.5, 0.75)
+scale = Vector2(0.0849609, 0.0849609)
+texture = ExtResource("7_272bh")

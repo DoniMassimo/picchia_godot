@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct63c6ddv7w73"
-path="res://.godot/imported/spearmy.jpg-fb12f14370961df4adca538f8b815eed.ctex"
+uid="uid://btuv2hd4m1nbq"
+path="res://.godot/imported/freakydog.png-c8e4fe4a16f9bb5c738dbe3117e5db70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spearmy.jpg"
-dest_files=["res://.godot/imported/spearmy.jpg-fb12f14370961df4adca538f8b815eed.ctex"]
+source_file="res://assets/freakydog.png"
+dest_files=["res://.godot/imported/freakydog.png-c8e4fe4a16f9bb5c738dbe3117e5db70.ctex"]
 
 [params]
 
