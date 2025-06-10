@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://72dv4dwf2s4x"]
+[gd_scene load_steps=7 format=3 uid="uid://72dv4dwf2s4x"]
 
 [ext_resource type="Script" uid="uid://e402m4xrcwha" path="res://player1.gd" id="1_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://dy7kv45tiucy7" path="res://assets/icon.svg" id="2_kne1u"]
+[ext_resource type="Script" uid="uid://d3qoxriioq5mu" path="res://arrow.gd" id="3_e80uo"]
+[ext_resource type="Texture2D" uid="uid://dlhcn1gfluxnr" path="res://assets/arrow.svg" id="4_cxr5p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hqtel"]
 height = 44.0
@@ -24,3 +26,14 @@ position = Vector2(0, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_i3pqv")
+
+[node name="Arrow" type="Node2D" parent="."]
+script = ExtResource("3_e80uo")
+
+[node name="Arrow2" type="Sprite2D" parent="Arrow"]
+rotation = -3.14159
+scale = Vector2(4.58333, 1)
+texture = ExtResource("4_cxr5p")
+
+[node name="Marker2D" type="Marker2D" parent="Arrow"]
+position = Vector2(37, 0)
